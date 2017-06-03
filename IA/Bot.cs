@@ -90,19 +90,18 @@ namespace IA
         {
             await Client.LoginAsync(TokenType.Bot, clientInformation.Token);
 
-            foreach(DiscordSocketClient client in Client.Shards)
+            foreach(DiscordSocketClient c in Client.Shards)
             {
-                await client.StartAsync();
-                // 10 seconds wait
+                await c.StartAsync();
                 await Task.Delay(10000);
             }
 
             await Task.Delay(-1);
         }
 
-        public void Dispose()
+        public void Dispose()   
         {
-            GC.SuppressFinalize(this);
+            GC.Collect();
         }
 
         public int GetShardId()
@@ -172,7 +171,8 @@ namespace IA
             Client = new DiscordShardedClient(new DiscordSocketConfig()
             {
                 TotalShards = clientInformation.ShardCount,
-                LogLevel = LogSeverity.Info,                 
+                LogLevel = LogSeverity.Info,
+                ConnectionTimeout = 300000,
             });
 
             Events = new EventSystem(x =>

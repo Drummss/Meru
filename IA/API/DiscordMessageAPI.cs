@@ -14,11 +14,13 @@ namespace Meru.API
     {
         DiscordSocketClient client;
 
-        public int Latency => client.Latency;       
+        public int Latency => client.Latency;
 
-        private List<IDiscordGuild> GetGuilds()
+        public List<IMeruServer> Servers => GetGuilds();
+
+        private List<IMeruServer> GetGuilds()
         {
-            List<IDiscordGuild> guilds = new List<IDiscordGuild>();
+            List<IMeruServer> guilds = new List<IMeruServer>();
             foreach(IGuild g in client.Guilds)
             {
                 guilds.Add(new RuntimeGuild(g));

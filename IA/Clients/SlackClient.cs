@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace Meru.Clients
 {
     class SlackClient
-    {
-        
+    {      
         public SlackSocketClient Client;
     }
 }

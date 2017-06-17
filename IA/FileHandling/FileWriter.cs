@@ -15,13 +15,13 @@ namespace Meru.FileHandling
             {
                 filePath = Directory.GetCurrentDirectory() + "\\" + fileName;
                 file = new StreamWriter(new FileStream(filePath + ".config", FileMode.Create));
-                file.WriteLine($"# {fileName} created with {DiscordClient.VersionText}");
+                file.WriteLine($"# {fileName} created with Meru v{Client.VersionNumber}");
             }
             else
             {
                 filePath = Directory.GetCurrentDirectory() + "\\" + fileName;
                 file = new StreamWriter(new FileStream(filePath, FileMode.Create));
-                file.WriteLine($"# {fileName} created with {DiscordClient.VersionText}");
+                file.WriteLine($"# {fileName} created with Meru v{Client.VersionNumber}");
             }
         }
 
@@ -32,13 +32,13 @@ namespace Meru.FileHandling
             {
                 filePath = Directory.GetCurrentDirectory() + "\\" + relativePath + "\\" + fileName;
                 file = new StreamWriter(new FileStream(filePath + ".config", FileMode.Create));
-                file.WriteLine($"# {fileName} created with {DiscordClient.VersionText}");
+                file.WriteLine($"# {fileName} created with Meru v{Client.VersionNumber}");
             }
             else
             {
                 filePath = Directory.GetCurrentDirectory() + "\\" + relativePath + "\\" + fileName;
                 file = new StreamWriter(new FileStream(filePath, FileMode.Create));
-                file.WriteLine($"# {fileName} created with {DiscordClient.VersionText}");
+                file.WriteLine($"# {fileName} created with Meru v{Client.VersionNumber}");
             }
         }
 

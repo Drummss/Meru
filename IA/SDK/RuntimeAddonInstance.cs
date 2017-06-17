@@ -19,11 +19,11 @@ namespace Meru.SDK
         public RuntimeAddonInstance()
         {
         }
-        public RuntimeAddonInstance(IAddonInstance i, DiscordClient bot)
+        public RuntimeAddonInstance(IAddonInstance i, Client bot)
         {
             Name = i.Name;
             Modules = i.Modules;
-            this.bot = bot;
+            this.bot = new DiscordClient(bot);
         }
 
         public string GetBotVersion()

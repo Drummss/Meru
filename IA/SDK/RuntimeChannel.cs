@@ -162,7 +162,7 @@ namespace Meru.SDK
                     }
                 });
 
-            DiscordClient.Instance.Client.ReactionAdded += socketReaction;
+            Client.Instance.Client.ReactionAdded += socketReaction;
 
             int timeTaken = 0;
             while (output == -1 || timeTaken > 10000)
@@ -170,7 +170,7 @@ namespace Meru.SDK
                 await Task.Delay(100);
                 timeTaken += 100;
             }
-            DiscordClient.Instance.Client.ReactionAdded -= socketReaction;
+            Client.Instance.Client.ReactionAdded -= socketReaction;
 
             if (output != -1)
             {

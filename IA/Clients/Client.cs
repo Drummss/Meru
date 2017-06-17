@@ -12,9 +12,6 @@ namespace Meru
 {
     public class Client
     {
-        public static Client Instance => _instance;
-        protected static Client _instance;
-
         public AddonManager Addons { protected set; get; }
         public EventSystem Events { protected set; get; }
         public IMessageAPI MessageAPI { get; }

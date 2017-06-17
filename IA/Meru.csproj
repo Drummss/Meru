@@ -73,7 +73,6 @@
     <Compile Include="Addons\AddonManager.cs" />
     <Compile Include="API\DiscordMessageAPI.cs" />
     <Compile Include="Clients\Client.cs" />
-    <Compile Include="API\IMessageAPI.cs" />
     <Compile Include="Clients\SlackClient.cs" />
     <Compile Include="Events\CommandDoneEvent.cs" />
     <Compile Include="Events\PrefixInstance.cs" />
@@ -310,12 +309,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\IA.SDK\IA.SDK\IA.SDK.csproj">
-      <Project>{B8FFA60F-2C45-449F-AD4D-CF1C5A3075D4}</Project>
-      <Name>IA.SDK</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\201705272224068_Add-States.resx">
       <DependentUpon>201705272224068_Add-States.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +318,12 @@
     <EmbeddedResource Include="Migrations\201706031712080_pls-werk.resx">
       <DependentUpon>201706031712080_pls-werk.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\IA.SDK\IA.SDK\Meru.SDK.csproj">
+      <Project>{b8ffa60f-2c45-449f-ad4d-cf1c5a3075d4}</Project>
+      <Name>Meru.SDK</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

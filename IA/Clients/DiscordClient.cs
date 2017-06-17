@@ -18,6 +18,9 @@ namespace Meru
 {
     public class DiscordClient : Client
     {
+        private static DiscordClient _instance;
+        public static DiscordClient Instance => _instance;
+
         public DiscordShardedClient Client { private set; get; }
 
         private string currentPath = Directory.GetCurrentDirectory();
@@ -32,6 +35,12 @@ namespace Meru
             {
                 clientInformation = LoadPreferenceFile();
             }
+            Init().GetAwaiter().GetResult();
+        }
+        public DiscordClient(Client c)
+        {
+            Addons = c.Addons;
+            Events = c.Events;
             Init().GetAwaiter().GetResult();
         }
         public DiscordClient(ClientInformation info)
@@ -92,7 +101,7 @@ namespace Meru
         {
             ClientInformation outputBotInfo = new ClientInformation();
             FileWriter file = new FileWriter("preferences", "config");
-            file.WriteComment(VersionText + " preferences file");
+            file.WriteComment("Meru v" + VersionNumber + " preferences file");
             file.WriteComment("Please do not change this file except to change\n# except to change your settings");
             file.WriteComment("Bot Name");
             Console.WriteLine("Enter bot name: ");
